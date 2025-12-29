@@ -41,7 +41,7 @@ jobs:
           default: stable
           toolchain: stable
       - name: Build
-        run: cargo build -p test_scene --target wasm32-unknown-unknown --profile web_release
+        run: cargo b_test_scene --profile web_release
       - name: Install wasm-bindgen
         run: cargo install --force wasm-bindgen-cli
       - name: Wasm bindgen
