@@ -33,7 +33,7 @@ jobs:
         with:
           lfs: true
       - name: Copy prebuilt basisu vendor
-        run: rm -r web/debug/ && rm web/basisu-vendor.js && rm web/basisu_vendor.wasm && cp prebuild/basisu-vendor.js web/ && cp prebuild/basisu_vendor.wasm web/
+        run: rm -r web/debug/ && rm web/basisu-vendor.js && rm web/basisu_vendor.wasm && cp prebuilt/basisu-vendor.js web/ && cp prebuilt/basisu_vendor.wasm web/
       - name: Install rust toolchain
         uses: actions-rs/toolchain@v1.0.6
         with:
