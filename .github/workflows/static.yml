@@ -43,11 +43,10 @@ jobs:
         uses: cargo-bins/cargo-binstall@v1.16.6
 
       - name: Install rust toolchain
-        uses: actions-rs/toolchain@v1.0.6
+        uses: dtolnay/rust-toolchain@master
         with:
-          target: wasm32-unknown-unknown
-          default: stable
-          toolchain: stable
+          toolchain: nightly-2025-12-29 # Sync with rust-toolchain.toml
+          targets: wasm32-unknown-unknown
 
       - name: Build
         run: cargo b_test_scene --profile web_release
