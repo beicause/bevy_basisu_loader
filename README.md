@@ -49,7 +49,7 @@ This plugin supports WebGL2 and WebGPU. To run on web this repo uses a solution:
 
 The `crates/basisu-bindgen` uses `bindgen` to generate Rust binding of the C++ wrapper.
 
-The `crates/basisu-vendor` builds a high level wrapper of the basis universal C++ library. For native platforms, it builds and links the C++ dependency. For web, it's not a cargo dependency and needs to be build manually with `build.rs` using Emscripten to produce js and wasm files. The js wrapper is designed so that it does not need to share memory with the main Wasm module.
+The `crates/basisu-vendor` builds a high level wrapper of the basis universal C++ library. For native platforms, it builds and links the C++ dependency. For web, it's not a cargo dependency and just a cli tool to build basisu wrapper using Emscripten and produce js and wasm files. The basisu wrapper is designed so that it does not need to share memory with the main Wasm module.
 
 The `crates/basisu-sys`. For native platforms, it re-exports the APIs of `basisu-vendor`. For web, it calls the js wrapper which calls the `basisu_vendor.js` and `basisu_vendor.wasm`. Now it can be used by the loader on all platforms!
 
