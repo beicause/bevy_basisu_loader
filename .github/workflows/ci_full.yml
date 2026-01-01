@@ -48,7 +48,7 @@ jobs:
         run: cargo r -p bevy_basisu_loader_sys --bin build-wasm-cli --features build-wasm-cli -- --emcc-flags="-Os -flto=full" --wasm-opt-flags="-Os"
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           path: crates/basisu_sys/wasm/
 
