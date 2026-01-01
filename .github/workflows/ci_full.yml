@@ -35,6 +35,9 @@ jobs:
         with:
           version: ${{ env.EM_VERSION }}
 
+      - name: Install wasm-opt
+        run: wget https://github.com/WebAssembly/binaryen/releases/download/version_125/binaryen-version_125-x86_64-linux.tar.gz && tar -xvf binaryen-version_125-x86_64-linux.tar.gz && sudo cp binaryen-version_125/bin/wasm-opt /usr/local/bin/
+
       - name: Clippy
         run: cargo clippy -- -D warnings
 
@@ -74,4 +77,4 @@ jobs:
         run: cargo binstall cargo-ndk
 
       - name: Build
-        run: cargo ndk -t arm64-v8a build
+        run: cargo ndk -t arm64-v8a build --features bevy/android-game-activity
