@@ -17,7 +17,7 @@ env:
 
 jobs:
   build-linux-wasm:
-    name: Build Linux+Wasm32
+    name: Build linux,wasm32
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -50,7 +50,7 @@ jobs:
           path: crates/basisu_sys/wasm/
 
   build-android:
-    name: Build Android
+    name: Build android
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -68,7 +68,7 @@ jobs:
 
       - name: Install Android NDK
         run: |
-          sudo ${ANDROID_HOME}/tools/bin/sdkmanager --install 'ndk;${{env.ANDROID_NDK_VERSION}}'
+          sudo ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager 'ndk;${{env.ANDROID_NDK_VERSION}}'
 
       - name: Install cargo-ndk
         run: cargo binstall cargo-ndk
